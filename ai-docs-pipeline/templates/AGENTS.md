@@ -17,6 +17,7 @@ Prefer small targeted edits over large rewrites.
 * `content/`: documentation source files
 * `content/en/`: primary language content
 * `[other directories]`: describe your layout
+* `[path or URL to a product repository]`: optional. The code for the product you document, which `discover-feature` reads to confirm facts
 
 ## Writing style rules
 [List your non-negotiable rules. Be specific.]

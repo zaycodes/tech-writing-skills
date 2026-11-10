@@ -50,21 +50,39 @@ Otherwise, use your issue tracker integration to fetch the ticket. In order of p
 
 For each attachment you cannot read, note the filename and type in the brief under "Unread attachments."
 
-### Step 4: Search the knowledge base
-
-Search your internal knowledge base for context related to this feature. Use the ticket title and key terms as your search query. This could be Confluence, Notion, a search tool like Glean, or any internal wiki your team uses. Look for:
-
-* Engineering documentation or design specs
-* Product specs
-* Related feature context that fills gaps in the ticket
-
-If no knowledge base is connected, skip this step and say so under Sources.
-
-### Step 5: Find related existing documentation
+### Step 4: Find related existing documentation
 
 Search the documentation folder listed under "Repository structure" in the project instruction file for existing documentation related to this feature. Note the file paths of any docs that may need to be updated or cross-linked.
 
-### Step 6: Write the research brief
+### Step 5: Read the code behind the feature
+
+The code is often the most reliable source for field names, allowed values, defaults, permissions, and error responses. Look for, in this order:
+
+* Pull requests, commits, or branches the ticket links or names. With GitHub, read them with `gh pr view` and `gh pr diff`. In a local repository, use `git log` and `git show`.
+* An API specification, such as an OpenAPI file.
+* Tests and changelog entries for the feature.
+
+Search this repository, and any product repository listed under "Repository structure" in the project instruction file or named by the writer.
+
+Use the code only to confirm facts. Give the file and line as the source for each one. If the code and the ticket disagree, put both versions under Open questions and do not choose between them.
+
+If no code is available, say so under Sources.
+
+### Step 6: Search the knowledge base, if one is connected
+
+If your agent has a connection to the team's knowledge base or wiki, such as Confluence, Notion, or Glean, search it with the ticket title and key terms. Look for design documents, product specifications, and context that fills gaps in the ticket.
+
+If no knowledge base is connected, say so under Sources in one line and go to the next step.
+
+### Step 7: Ask for what is missing
+
+Before writing the brief, review the open questions so far. If a specific source the writer may have would answer any of them, stop and ask for that source by name, and say which questions it would answer. For example:
+
+> Before I write the brief, these would answer open questions. The pull request for the reminder change (questions 2 and 3), the API specification (question 1), and the full Slack thread (question 4). Share any you have, or say "continue" to write the brief with these questions open.
+
+Ask once. Do not ask for sources that would not answer an open question. Read whatever the writer shares, update the facts and questions, then write the brief.
+
+### Step 8: Write the research brief
 
 Write `.doc-workspace/[TICKET-ID]/discover-feature.md` using this structure:
 
@@ -110,7 +128,9 @@ One of:
   or structure. Get answers first.
 
 ## Sources
-Ticket URL, pages read, attachments read, knowledge base results used.
+* Checked: the ticket URL, pages, attachments, code, and knowledge base results used
+* Not available: sources with no connection or no access, such as "No knowledge base connected"
+* Asked for but not provided: sources requested in Step 7 that the writer did not share
 
 ## Unread attachments
 [Omit this section if all attachments were read successfully.]
