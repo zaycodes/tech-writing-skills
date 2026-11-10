@@ -1,6 +1,6 @@
 ---
 name: plan-doc
-description: Use after discover-feature and before drafting. Turns the research brief into a documentation outline for the writer to approve.
+description: Use after discover-feature and before drafting, or on its own with a ticket. Turns the research brief into a documentation outline for the writer to approve.
 ---
 
 # plan-doc
@@ -11,15 +11,21 @@ Produce a structured documentation outline from the research brief, for writer a
 
 Run this after `discover-feature` has produced an approved research brief. Always plan before drafting. Changing structure after a draft exists is expensive.
 
+You can also run it on its own, without a brief, when the writer already knows the feature.
+
 ## Inputs
 
-* `.doc-workspace/[TICKET-ID]/discover-feature.md`
+* `.doc-workspace/[TICKET-ID]/discover-feature.md`, the research brief
 
-If this file does not exist, stop and tell the writer:
+If the brief does not exist, tell the writer and offer a choice:
 
-> No research brief for [TICKET-ID]. Run `/discover-feature [TICKET-ID]` first.
+> There is no research brief for [TICKET-ID]. Run `/discover-feature [TICKET-ID]` first, or give me the ticket and any notes and I will plan from those.
 
-If the brief's suggested next step is **Not ready**, stop and tell the writer which blocking questions need answers before planning.
+If the writer chooses to continue, use the ticket and notes they give you in place of the brief in every step below. Create `.doc-workspace/[TICKET-ID]/` if it does not exist. Start the plan with this line, so anyone reviewing later can see the research step was skipped:
+
+> Planned without a research brief. Sources: [what the writer gave you].
+
+If the brief's suggested next step is **Not ready**, tell the writer which blocking questions need answers, and ask whether to plan anyway. If they say yes, list those questions under Open questions in the plan.
 
 ## Steps
 

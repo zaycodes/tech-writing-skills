@@ -25,7 +25,7 @@ Use this when the page went through the pipeline.
 
 If `plan.md` is missing, or the page it names does not exist, stop and tell the writer:
 
-> No draft to review for [TICKET-ID]. Run `plan-doc` and `draft-doc` first.
+> No draft to review for [TICKET-ID]. Run `plan-doc` and `draft-doc` first, or give me the page's file path to review it directly.
 
 ### A file path, for example `docs/api/tasks.md`
 

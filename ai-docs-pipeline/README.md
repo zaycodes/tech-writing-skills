@@ -74,22 +74,22 @@ Run the skills in order on one ticket. Replace `DOC-1234` with your own ticket I
 ```
 
 Each stage saves its output to `.doc-workspace/DOC-1234/` and stops for you to review before the next one. The first skill creates the folder.
-If a stage's input is missing, the skill stops and tells you which stage to run first.
 
 If your agent does not use slash commands, ask it to run the skill instead, for example "Run the discover-feature skill on DOC-1234."
 
 ### Run one skill on its own
 
-You do not need all five skills for every change. For a small fix, run `doc-review` on the page by passing a file path instead of a ticket ID:
+You do not need all five skills for every change. Each skill also works on its own.
 
-```
-/doc-review docs/path/to/page.md
-```
+| Skill | Without the earlier skills |
+|---|---|
+| `branch` | Needs only the ticket ID |
+| `discover-feature` | Needs only the ticket |
+| `plan-doc` | Tells you there is no research brief, then plans from the ticket and notes you give it |
+| `draft-doc` | Tells you there is no plan or brief, then drafts from an outline and sources you give it |
+| `doc-review` | Pass a file path instead of a ticket ID, for example `/doc-review docs/path/to/page.md` |
 
-| You pass | What it reviews | Stops if a stage is missing? | Where the review goes |
-|---|---|---|---|
-| A ticket ID | The draft named in that ticket's `plan.md` | Yes | `.doc-workspace/DOC-1234/review.md` |
-| A file path | That file | No | The conversation |
+When `plan-doc` or `draft-doc` runs without the earlier files, it says so in its output, so anyone reviewing later can see the research step was skipped. For a small fix, such as a typo, `doc-review` on its own is usually enough.
 
 ## License
 

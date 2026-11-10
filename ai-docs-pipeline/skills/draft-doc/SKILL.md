@@ -1,6 +1,6 @@
 ---
 name: draft-doc
-description: Use after plan-doc, once the plan is approved. Writes the draft from the plan and brief, flagging gaps and unverified content inline.
+description: Use after plan-doc, once the plan is approved, or on its own with an outline. Writes the draft from the plan and brief, flagging gaps and unverified content inline.
 ---
 
 # draft-doc
@@ -9,18 +9,32 @@ Write the documentation draft from the approved plan and research brief.
 
 ## When to use this skill
 
-Run this after `plan-doc` has produced a plan that the writer has approved. Do not draft without an approved plan.
+Run this after `plan-doc` has produced a plan that the writer has approved.
+
+You can also run it on its own, without a plan or a brief, when the writer has an outline and sources of their own.
 
 ## Inputs
 
 * `.doc-workspace/[TICKET-ID]/plan.md`
 * `.doc-workspace/[TICKET-ID]/discover-feature.md`
 
-If either file is missing, stop and tell the writer which one, and which skill creates it:
+If either file is missing, tell the writer which one, and offer a choice.
 
-> No plan for [TICKET-ID]. Run `/plan-doc [TICKET-ID]` first.
+If the plan is missing:
 
-> No research brief for [TICKET-ID]. Run `/discover-feature [TICKET-ID]` first.
+> There is no plan for [TICKET-ID]. Run `/plan-doc [TICKET-ID]` first, or give me an outline and the path for the page, and I will draft from those.
+
+If the writer gives an outline, save it as `.doc-workspace/[TICKET-ID]/plan.md`, with the page path under File > Path, so `doc-review` can find the page later. Create the folder if it does not exist.
+
+If the brief is missing:
+
+> There is no research brief for [TICKET-ID]. Run `/discover-feature [TICKET-ID]` first, or give me the ticket and any sources, and I will draft from those.
+
+If the writer chooses to continue without a brief, use the sources they give you in place of the brief in every step below. Put this marker on the first line after the front matter of the page, so `doc-review` counts it and the skipped research stays visible:
+
+```
+<!-- VERIFY: Drafted without a research brief. Check each fact against its source. -->
+```
 
 ## Steps
 
@@ -101,7 +115,7 @@ Then say: "The draft is at `[file path]`. Read it and resolve the markers you ca
 
 ## Rules
 
-* Only write what the sources in the research brief support.
+* Only write what the sources support, in the research brief or in what the writer gave you.
 * Do not invent product behavior, API parameters, default values, or UI labels.
 * Do not skip sections from the plan. A missing section is always visible.
 * Use exact terminology from the research brief throughout. Do not paraphrase technical terms.
