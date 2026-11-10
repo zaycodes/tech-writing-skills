@@ -28,7 +28,13 @@ Extract the ticket ID from whatever the writer provided: a URL, a plain ID, or a
 
 ### Step 2: Create the workspace directory
 
-Create `.doc-workspace/[TICKET-ID]/`. This directory holds all working files for this ticket and is scoped to the feature branch. It never merges to main.
+Create `.doc-workspace/[TICKET-ID]/`. This directory holds all working files for this ticket. Git ignores it, so the files stay on this computer and are never committed.
+
+Check that `.gitignore` at the repository root lists `.doc-workspace/`. If it does not, tell the writer:
+
+> `.doc-workspace/` is not in `.gitignore`, so the working files for this ticket could be committed. Add the line `.doc-workspace/` to `.gitignore`.
+
+Then continue.
 
 ### Step 3: Fetch the ticket
 

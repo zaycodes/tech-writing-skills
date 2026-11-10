@@ -41,11 +41,13 @@ Each skill is a folder with a Markdown file of instructions, `SKILL.md`. Most AI
 1. Copy `templates/AGENTS.md` to the root of your repository and fill it in. In its third section, "Repository structure", list the folder your documentation lives in, for example `docs/` for a Docusaurus site. When `plan-doc` adds a new page, it puts it in that folder.
    Claude Code reads `AGENTS.md` when the repository has no `CLAUDE.md`. If you already have a `CLAUDE.md`, add the line `@AGENTS.md` to it.
 1. Fill in the CONFIG section at the top of `skills/doc-review/scripts/lint.py` with your team's style rules.
-1. Add this line to `.gitattributes` at the root of your repository, then run `git config merge.ours.driver true` once on each machine. It keeps the skills' working files on the ticket's branch.
+1. Add this line to `.gitignore` at the root of your repository.
 
    ```
-   .doc-workspace merge=ours
+   .doc-workspace/
    ```
+
+   The skills save their working files, such as the research brief and the plan, in `.doc-workspace/`. Ignoring the folder keeps those files on your computer and out of every commit, so they never reach your main branch.
 
 ## Connect your tracker
 
