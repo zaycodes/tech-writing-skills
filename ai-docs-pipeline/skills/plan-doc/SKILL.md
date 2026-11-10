@@ -13,7 +13,7 @@ Run this after `discover-feature` has produced an approved research brief. Alway
 
 ## Inputs
 
-* `.claude/workspace/[TICKET-ID]/discover-feature.md`
+* `.doc-workspace/[TICKET-ID]/discover-feature.md`
 
 If this file does not exist, stop and tell the writer:
 
@@ -60,7 +60,7 @@ Based on the doc type and subject matter, identify where the file belongs in tha
 
 ### Step 5: Write the plan
 
-Write `.claude/workspace/[TICKET-ID]/plan.md` using this structure:
+Write `.doc-workspace/[TICKET-ID]/plan.md` using this structure:
 
 ```markdown
 # Plan: [TICKET-ID]
@@ -105,7 +105,7 @@ For example:
 
 ## Output
 
-`.claude/workspace/[TICKET-ID]/plan.md`
+`.doc-workspace/[TICKET-ID]/plan.md`
 
 ## Transition
 

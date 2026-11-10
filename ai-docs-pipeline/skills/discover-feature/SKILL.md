@@ -28,7 +28,7 @@ Extract the ticket ID from whatever the writer provided: a URL, a plain ID, or a
 
 ### Step 2: Create the workspace directory
 
-Create `.claude/workspace/[TICKET-ID]/`. This directory holds all working files for this ticket and is scoped to the feature branch. It never merges to main.
+Create `.doc-workspace/[TICKET-ID]/`. This directory holds all working files for this ticket and is scoped to the feature branch. It never merges to main.
 
 ### Step 3: Fetch the ticket
 
@@ -60,7 +60,7 @@ Search the documentation folder listed under "Repository structure" in the proje
 
 ### Step 6: Write the research brief
 
-Write `.claude/workspace/[TICKET-ID]/discover-feature.md` using this structure:
+Write `.doc-workspace/[TICKET-ID]/discover-feature.md` using this structure:
 
 ```markdown
 # [TICKET-ID]: [Ticket title]
@@ -112,7 +112,7 @@ Ticket URL, pages read, attachments read, knowledge base results used.
 
 ## Output
 
-`.claude/workspace/[TICKET-ID]/discover-feature.md`
+`.doc-workspace/[TICKET-ID]/discover-feature.md`
 
 ## Transition
 

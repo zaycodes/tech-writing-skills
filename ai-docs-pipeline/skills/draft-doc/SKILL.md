@@ -13,8 +13,8 @@ Run this after `plan-doc` has produced a plan that the writer has approved. Do n
 
 ## Inputs
 
-* `.claude/workspace/[TICKET-ID]/plan.md`
-* `.claude/workspace/[TICKET-ID]/discover-feature.md`
+* `.doc-workspace/[TICKET-ID]/plan.md`
+* `.doc-workspace/[TICKET-ID]/discover-feature.md`
 
 If either file is missing, stop and tell the writer which one, and which skill creates it:
 
@@ -57,7 +57,7 @@ Do not skip sections. A section with only a gap marker is more honest than a sec
 
 Write the draft to the path specified in `plan.md` under File > Path. Use the front matter from the plan as the starting point.
 
-Also save a copy to `.claude/workspace/[TICKET-ID]/draft.md` as a working snapshot.
+Also save a copy to `.doc-workspace/[TICKET-ID]/draft.md` as a working snapshot.
 
 ## Failure modes
 
@@ -88,7 +88,7 @@ Insert markers at the exact location where missing or uncertain content belongs.
 ## Output
 
 * Draft written to the path in `plan.md`
-* Working copy at `.claude/workspace/[TICKET-ID]/draft.md`
+* Working copy at `.doc-workspace/[TICKET-ID]/draft.md`
 
 ## After drafting
 

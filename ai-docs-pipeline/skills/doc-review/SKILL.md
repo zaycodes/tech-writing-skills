@@ -19,7 +19,7 @@ The writer gives you either a ticket ID or a file path.
 
 Use this when the page went through the pipeline.
 
-1. Open `.claude/workspace/[TICKET-ID]/plan.md`.
+1. Open `.doc-workspace/[TICKET-ID]/plan.md`.
 1. Find the page's path under **File > Path**. This is the page `draft-doc` wrote.
 1. Review that page.
 
@@ -35,11 +35,13 @@ Use this to review any page, including pages that did not go through the pipelin
 
 ### Step 1: Run the lint script
 
-Run the lint script on the file. Do not skip this step.
+Run the lint script on the file. Do not skip this step. The script is in the `scripts/` folder next to this SKILL.md, wherever this skill is installed.
 
 ```bash
-python .claude/skills/doc-review/scripts/lint.py <file-path>
+python <this-skill-folder>/scripts/lint.py <file-path>
 ```
+
+For example, `.claude/skills/doc-review/scripts/lint.py` in Claude Code or `.agents/skills/doc-review/scripts/lint.py` in Codex.
 
 If the script is missing, stop and tell the writer to add it from the skills repo.
 
@@ -104,7 +106,7 @@ If the sub-agent's answers do not match the doc's stated purpose, that is a find
 
 ### Step 4: Write the report
 
-In ticket mode, write the report to `.claude/workspace/[TICKET-ID]/review.md`. With a file path, output it in the conversation.
+In ticket mode, write the report to `.doc-workspace/[TICKET-ID]/review.md`. With a file path, output it in the conversation.
 
 Use these sections, in this order:
 
@@ -160,7 +162,7 @@ Order findings by severity (Critical first), then by position in the document.
 
 ## Output
 
-* Ticket ID: `.claude/workspace/[TICKET-ID]/review.md`
+* Ticket ID: `.doc-workspace/[TICKET-ID]/review.md`
 * File path: the report in the conversation
 
 ## Severity definitions
