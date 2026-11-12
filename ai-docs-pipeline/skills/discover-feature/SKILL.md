@@ -62,7 +62,7 @@ The code is often the most reliable source for field names, allowed values, defa
 * An API specification, such as an OpenAPI file.
 * Tests and changelog entries for the feature.
 
-Search this repository, and any product repository listed under "Repository structure" in the project instruction file or named by the writer.
+Search this repository, and any product repository listed under "Repository structure" in the project instruction file or named by the writer. A repository listed by local path is a folder you can search directly. A repository listed by GitHub URL is read with `gh`, for example `gh pr list --repo [owner/repo] --search "[key terms]"`, `gh pr diff [number] --repo [owner/repo]`, and `gh api repos/[owner/repo]/contents/[path]` for a file. If `gh` is not installed or not signed in, say so under Sources.
 
 Use the code only to confirm facts. Give the file and line as the source for each one. If the code and the ticket disagree, put both versions under Open questions and do not choose between them.
 
